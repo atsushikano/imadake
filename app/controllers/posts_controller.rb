@@ -43,4 +43,16 @@ class PostsController < ApplicationController
     redirect_to("/posts/index")
   end
 
+  def time
+    @post = Post.find_by(id: params[:id])
+    # if  Time.now - @post.created_at <= 3600
+    @time = Time.now
+      @post.destroy
+      # flash[:notice] = @post.created_at
+      flash[:notice] = @time
+
+      redirect_to("/posts/index")
+    # end
+  end
+
 end

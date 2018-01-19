@@ -5,10 +5,19 @@
         <%= @post.content %>
       </p>
       <div class="post-time">
-        <%= @post.created_at %>
+        <%= @post.created_at.in_time_zone('Tokyo') %>
+      </div>
+      <div class="now-time">
+        <%= Time.now %>
+      </div>
+      <div class="count-time">
+        <%= Time.now - @post.created_at.in_time_zone('Tokyo')  %>
+
       </div>
       <div class="post-menus">
         <%= link_to("編集", "/posts/#{@post.id}/edit") %>
+        <%= link_to("自動削除", "/posts/#{@post.id}/time") %>
+
         <%= link_to("削除", "/posts/#{@post.id}/destroy", {method: "post"}) %>
       </div>
     </div>

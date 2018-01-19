@@ -3,6 +3,8 @@
     <h2>IMADAKE</h2>
     <p>今お得なお店を見つけよう</p>
   </div>
-  <%= @xmls %>
+  <%= @result['results']['api_version'] %>
+  <%= @result['results']['shop'][0]['name_kana'] %>
+  <%= @result['results']['shop'][0]['name'] %>
 
 </div>

@@ -3,6 +3,11 @@
     <% @posts.each do |post| %>
       <div class="posts-index-item">
         <%= link_to(post.content, "/posts/#{post.id}") %>
+        <% if 3000 < Time.now - post.created_at.in_time_zone('Tokyo') %>
+        期限切れ
+        <% else %>
+        まだ大丈夫
+        <% end %>
       </div>
     <% end %>
   </div>
