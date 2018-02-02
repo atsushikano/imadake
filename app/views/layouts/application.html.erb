@@ -34,9 +34,12 @@
           <li>
             <%= link_to("ログアウト", "/logout", {method: :post}) %>
           </li>
+          <li>
+            <%= link_to("API", "/users/api") %>
+          </li>
         <% else %>
           <li>
-            <%= link_to("TweetAppとは", "/about") %>
+            <%= link_to("IMADAKEとは", "/about") %>
           </li>
           <li>
             <%= link_to("新規登録", "/signup") %>

@@ -1,0 +1,23 @@
+<div class="main top-main">
+  <div class="top-message">
+    <h2>IMADAKE</h2>
+    <p>今お得なお店を見つけよう</p>
+  </div>
+  <%= @tel %>
+  <%= @result['results']['api_version'] %></br>
+  <%= @result['results']['shop'][0]['name_kana'] %></br>
+  <%= @result['results']['shop'][0]['name'] %></br>
+  <%= @result['results']['shop'][0]['other_memo'] %></br>
+
+  def check
+    @user = params[:tel]
+    # uri = URI.parse(
+    # "http://webservice.recruit.co.jp/hotpepper/gourmet/v1/?key=6cca7f57da84355c&format=json&tel=<%= params[tel]%>")
+    # json = Net::HTTP.get(uri)
+    # @result = JSON.parse(json)
+    redirect_to("about")
+  end
+
+
+
+</div>

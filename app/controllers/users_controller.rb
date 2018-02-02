@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user, {only: [:index, :show, :edit, :update]}
+  before_action :authenticate_user, {only: [:index, :show, :edit, :update ,:api]}
   before_action :forbid_login_user, {only: [:new, :create, :login_form, :login]}
   before_action :ensure_correct_user, {only: [:edit, :update]}
 
@@ -13,6 +13,16 @@ class UsersController < ApplicationController
 
   def new
     @user = User.new
+  end
+
+  def form
+    @user = User.find_by(id: params[:id])
+  end
+
+  def api
+    p params[:name]
+    flash[:notice] = "testしてます。"
+    redirect_to("/")
   end
 
   def create
