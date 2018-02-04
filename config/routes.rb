@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  post "users/api" => "users#api"
+  post "users/:id/api" => "users#api"
   get "users/api" => "users#form"
-  
+
   post "users/:id/update" => "users#update"
   get "users/:id/edit" => "users#edit"
   post "users/create" => "users#create"

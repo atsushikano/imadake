@@ -3,9 +3,9 @@
     <div class="form-heading">APIチェック</div>
     <div class="form users-form">
       <div class="form-body">
-        <%= form_for("/users/api") do %>
-          <p>電話番号</p>
-          <input name="name">
+        <%= form_tag("/users/#{@user.id}/api") do %>
+          <p>住所</p>
+          <input name="add">
           <input type="submit" value="検索する">
         <% end %>
       </div>

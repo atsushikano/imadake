@@ -15,15 +15,20 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def form
-    @user = User.find_by(id: params[:id])
-  end
-
-  def api
-    p params[:name]
-    flash[:notice] = "testしてます。"
-    redirect_to("/")
-  end
+  # def form
+  #   @user = User.find_by(id: params[:id])
+  # end
+  #
+  # def api
+  #   @user = User.find_by(id: params[:id])
+  #   @user.add = params[:add]
+  #     if @user.save
+  #       flash[:notice] = "電話番号追加完了"
+  #       redirect_to("/")
+  #     else
+  #       rander("users/api")
+  #     end
+  # end
 
   def create
     @user = User.new(
@@ -49,11 +54,12 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.name = params[:name]
     @user.email = params[:email]
+    @user.image = params[:image]
 
     if params[:image]
-      @user.image_name = "#{@user.id}.jpg"
+      @user.image = "#{@user.id}.jpg"
       image = params[:image]
-      File.binwrite("public/user_images/#{@user.image_name}", image.read)
+      File.binwrite("public/user_images/#{@user.image}", image.read)
     end
 
     if @user.save

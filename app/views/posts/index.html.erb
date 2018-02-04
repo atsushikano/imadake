@@ -1,12 +1,11 @@
 <div class="main posts-index">
   <div class="container">
+    <h1 class="posts-heading">IMADAKEおすすめ</h1>
     <% @posts.each do |post| %>
+    <% if 3600 < Time.now - post.created_at.in_time_zone('Tokyo') %>
+    <% else %>
       <div class="posts-index-item">
         <%= link_to(post.content, "/posts/#{post.id}") %>
-        <% if 3000 < Time.now - post.created_at.in_time_zone('Tokyo') %>
-        期限切れ
-        <% else %>
-        まだ大丈夫
         <% end %>
       </div>
     <% end %>
